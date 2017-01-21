@@ -10,3 +10,15 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/JavaWeb/WebApplication1/nbproject/private/
+/JavaWeb/01EjemploServlets/nbproject/private/
+/JavaWeb/01EjemploServlets/build/
+/JavaWeb/02Servlet/nbproject/private/
+/JavaWeb/02Servlet/build/
+/JavaWeb/03ServletVehiculos/build/
+/JavaWeb/03ServletVehiculos/nbproject/private/
+/JavaWeb/04HolaMundoWS/nbproject/private/
+/JavaWeb/04HolaMundoWS/build/
+/JavaWeb/05EstadosRepublicaWS/nbproject/private/
+/JavaWeb/05EstadosRepublicaWS/build/
+/JavaWeb/05EstadosRepublicaWS/dist/
