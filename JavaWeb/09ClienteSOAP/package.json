@@ -1,0 +1,20 @@
+{
+  "name": "09clientesoap",
+  "version": "0.0.1",
+  "description": "Cliente del Servicio SOAP de estados",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cliente",
+    "soap",
+    "estados"
+  ],
+  "author": "MPAL",
+  "license": "ISC",
+  "dependencies": {
+    "soap": "^0.18.0",
+    "xml2js": "^0.4.17"
+  }
+}

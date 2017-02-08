@@ -5,7 +5,7 @@
  */
 package model;
 
-import Vehiculo.Vehiculo;
+//import Vehiculo.Vehiculo;
 import java.util.Scanner;
 
 /**
@@ -38,7 +38,7 @@ public class Trailer extends Vehiculo{
             this.remolques = num_remolques;
             this.cantidad_llantas = cantidad_llantas;
         }  
-
+/*
     @Override
     public void imprimir_informacion() {
        System.out.println("Trailer");                              
@@ -59,5 +59,5 @@ public class Trailer extends Vehiculo{
         System.out.println("¿Cuantas llantas tiene?");
         this.cantidad_llantas = s.nextInt();
     }
-  
+*/  
 }

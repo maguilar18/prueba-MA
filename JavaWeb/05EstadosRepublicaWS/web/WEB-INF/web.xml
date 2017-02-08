@@ -16,6 +16,6 @@
     </servlet>
      <servlet-mapping>
         <servlet-name>EstadosMexico</servlet-name>
-        <url-pattern>/estados</url-pattern>
+        <url-pattern>/Estados</url-pattern>
     </servlet-mapping>
 </web-app>

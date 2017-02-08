@@ -1,0 +1,16 @@
+probar ejercicio 7
+
+<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws/">
+    <x:Header/>
+    <x:Body>
+        <ws:insertarCorridas>
+            <origen>MEX</origen>
+            <destino>ON</destino>
+            <fechaSalida>2017-02-02</fechaSalida>
+            <fechaLlegada>2017-02-02</fechaLlegada>
+            <horaSalida>10:00:00</horaSalida>
+            <horaLlegada>01:00:00</horaLlegada>
+            <escalas>4</escalas>
+        </ws:insertarCorridas>
+    </x:Body>
+</x:Envelope>

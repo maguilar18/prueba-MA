@@ -9,33 +9,125 @@ and open the template in the editor.
         <title>Registro Vehiculo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function load(){
+                console.log("Página cargada")
+            }
+            
+            /*function cambiarQuemacocos(){
+                var quemacocos = document.getElementById("quemacocos");
+                var puertas = document.getElementById("puertas");
+                if(quemacocos.value == "false"){
+                    puertas.style = "display:none";
+                }
+                else {
+                    puertas.style="display:inline";
+                }
+             */
+            
+            function tipovehiculo(){
+                var tipo_vehiculo = document.getElementById("tipo_vehiculo");
+                var faros_niebla = document.getElementById("faros_niebla");
+                var lblfaros_niebla = document.getElementById("lblfaros_niebla");
+                var lbltamano = document.getElementById("lbltamano");
+                var tamano = document.getElementById("tamano"); 
+                var lblcarga = document.getElementById("lblcarga");
+                var carga = document.getElementById("carga"); 
+                var lblredilas = document.getElementById("lblredilas");
+                var redilas = document.getElementById("redilas");  
+                if(tipo_vehiculo.value == "1"){                    
+                    lblfaros_niebla.style="display:inline";
+                    faros_niebla.style="display:inline";
+                    lbltamano.style="display:inline";
+                    tamano.style="display:inline";
+                    lblredilas.style="display:none";
+                    redilas.style="display:none";
+                    lblcarga.style="display:none";
+                    carga.style="display:none";
+                }           
+                if(tipo_vehiculo.value == "2")
+                {
+                    lblredilas.style="display:inline";
+                    redilas.style="display:inline";
+                    lblcarga.style="display:inline";
+                    carga.style="display:inline";
+                    lblfaros_niebla.style="display:none";
+                    faros_niebla.style = "display:none";
+                    lbltamano.style="display:none";
+                    tamano.style = "display:none";
+                }                
+                 if(tipo_vehiculo.value == "3")
+                {
+                    lblredilas.style="display:inline";
+                    redilas.style="display:inline";
+                    lblcarga.style="display:inline";
+                    carga.style="display:inline";
+                    lblfaros_niebla.style="display:none";
+                    faros_niebla.style = "display:none";
+                    lbltamano.style="display:none";
+                    tamano.style = "display:none";
+                }    
+                console.log(tipo_vehiculo.value);
+            }
+            
+        </script>
     </head>
-    <body>
-        <p>un mensaje cualquiera</p>
-        <form method="post" action="/02Servlet/ServletAutobus">
-            <input type ="hidden" value="1" name="accion">
-            <label for ="num_autobus">Número de Autobus:</label>
-            <input id="num_autobus" name ="num_autobus" type="number">
-            <br>
-            <label for="siglas">Siglas:</label>
-            <input id="siglas" name="siglas" type="text" maxlength="3">
-            <br>
-            <label for="modelo">Modelo:</label>
-            <input id="modelo" name="modelo" type="number" min="1990" max="2017">
-            <br>
-            <label for="capacidad">Capacidad:</label>
-            <input id="capacidad" name="capacidad" type="number" min="10" max="40">
-            <br>
-            <label for="base"></label>
-            <select name="base" id="base">
-                <option value="leon">LEON</option>
-                <option value="leon">GUADALAJARA</option>
-                <option value="leon">SILAO</option>
-                <option value="leon">GUANAJUATO</option>
-                <option value="leon">CELAYA</option>                
+    <body onload="load()">
+        <p>Selecciona el tipo de vehiculo</p>
+        <form method="post" action="/03Servlet/ServletVehiculo">
+            <input type ="hidden" value="1" name="accion">            
+            <select onchange="tipovehiculo()" name="tipo_vehiculo" id="tipo_vehiculo">
+                <option value="1">Automovil</option>
+                <option value="2">Camioneta</option>
+                <option value="3">Motocicleta</option>
+                <option value="4">Trailer</option>
             </select>
+            <label id= "lblid">Clave id vehiculo:</label>            
+            <input id="id" name ="id" type="number">
+            <br>
+            <label id="lblpuertas">Puertas:</label>
+            <input id="puertas" name="puertas" type="number">
+            <br>
+            <label id="lblcolor">Color:</label>
+            <input id="color" name="color" type="text">            
+            <br>            
+            <label id="lblquemacocos">Quemacocos:</label>
+            <br>
+            <select onchange="cambiarQuemacocos()" name="quemacocos" id="quemacocos">
+                <option value="true">SI</option>
+                <option value="false">NO</option>
+            </select>
+            <br>
+            <label id="lbltamano">Tamaño Automovil:</label>
+            <input id="tamano" name="tamano" type="text">                        
+            <br>
+            <label id="lblfaros_niebla">Faros de Niebla:</label>            
+            <select name="faros_niebla" id="faros_niebla">
+                <option value="true">SI</option>
+                <option value="false">NO</option>
+            </select>    
+            <br>
+            <label id="lblcarga">¿Es de carga?:</label>            
+            <select name="carga" id="carga">
+                <option value="true">SI</option>
+                <option value="false">NO</option>
+            </select>    
+            <br>
+            <label id="lblredilas">¿Tiene redilas?:</label>            
+            <select name="redilas" id="redilas">
+                <option value="true">SI</option>
+                <option value="false">NO</option>
+            </select>
+            <br>
+            <label id="lbldeportiva">¿Es deportiva?:</label>            
+            <select name="deportiva" id="deportiva">
+                <option value="true">SI</option>
+                <option value="false">NO</option>
+            </select>
+            <br>
+            <label id="lblfabricante">Fabricante:</label>
+            <input id="fabricante" name="febricante" type="text"> 
             <button type="submit">Insertar</button>
-        </form>
-        
+        </form>        
     </body>
 </html>

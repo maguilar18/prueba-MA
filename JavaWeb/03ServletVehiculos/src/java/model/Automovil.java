@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package model;
-import Vehiculo.Vehiculo;
+//import Vehiculo.Vehiculo;
 import java.util.Scanner;
 /**
  *
@@ -37,7 +37,7 @@ public class Automovil extends Vehiculo{
         this.tamano = tamano;
     }
      
-     
+    /* 
     @Override
     public void imprimir_informacion() {       
        System.out.println("Automovil");                                     
@@ -58,7 +58,7 @@ public class Automovil extends Vehiculo{
         System.out.println("¿Tiene faros de niebla?");
         this.faros_niebla = s.nextBoolean();  
         System.out.println("Captura terminada");
-    }
+    }*/
        
          
 }

@@ -5,7 +5,7 @@
  */
 package model;
 
-import Vehiculo.Vehiculo;
+//import Vehiculo.Vehiculo;
 import java.util.Scanner;
 
 /**
@@ -39,7 +39,7 @@ public class Camioneta extends Vehiculo{
         this.redilas = redilas;
     }
 
-    
+    /*
     @Override
     public void imprimir_informacion() {
        System.out.println("Camioneta");                                     
@@ -59,5 +59,5 @@ public class Camioneta extends Vehiculo{
         this.carga = s.nextBoolean();         
         System.out.println("¿Tiene redilas?");
         this.redilas = s.nextBoolean();
-    }  
+    }  */
 }

@@ -34,8 +34,8 @@ public class VehiculoDB {
          Class.forName(JDBC_DRIVER); 
          Connection conexion = DriverManager.getConnection(DB_URL,USER,PASS);
          Statement consulta = conexion.createStatement();
-         String query = String.format("INSERT INTO vehiculo(id,puertas,color,quemacocos) values ('%d','%d','%s','%b')",
-         vehiculo.getId(),vehiculo.getPuertas(),vehiculo.getColor(),vehiculo.isQuemacocos());
+         String query = String.format("INSERT INTO vehiculo(id,puertas,color,quemacocos) values ('%d','%d','%s',%b)",
+         vehiculo.getId(),vehiculo.getPuertas(),vehiculo.getColor(),vehiculo.isQuemacocos()); //?true:false
          
          int res = consulta.executeUpdate(query);
          consulta.close();
@@ -78,9 +78,8 @@ public class VehiculoDB {
          Class.forName(JDBC_DRIVER); 
          Connection conexion = DriverManager.getConnection(DB_URL,USER,PASS);
          Statement consulta = conexion.createStatement();
-         String query = String.format("INSERT INTO automovil(faros_niebla,tamano) values ('%b','%s')",
-         automovil.getFaros_niebla(),automovil.getTamano());
-         
+         String query = String.format("INSERT INTO automovil(id,faros_niebla,tamano) values (%d,%b,'%s')",
+         automovil.getId(),automovil.getFaros_niebla(),automovil.getTamano());         
          int res = consulta.executeUpdate(query);
          consulta.close();
          conexion.close();        
@@ -119,7 +118,7 @@ public int registrarCamioneta(Camioneta camioneta) throws ClassNotFoundException
          Class.forName(JDBC_DRIVER); 
          Connection conexion = DriverManager.getConnection(DB_URL,USER,PASS);
          Statement consulta = conexion.createStatement();
-         String query = String.format("INSERT INTO camioneta(carga,redilas) values ('%b','%b')",
+         String query = String.format("INSERT INTO camioneta(id,carga,redilas) values (%d,%b,%b)",
          camioneta.isCarga(),camioneta.isRedilas());
          
          int res = consulta.executeUpdate(query);
@@ -161,7 +160,7 @@ public int registrarTrailer(Trailer trailer) throws ClassNotFoundException,
          Class.forName(JDBC_DRIVER); 
          Connection conexion = DriverManager.getConnection(DB_URL,USER,PASS);
          Statement consulta = conexion.createStatement();
-         String query = String.format("INSERT INTO trailer(remolques,cantidad_llantas) values ('%d','%d')",
+         String query = String.format("INSERT INTO trailer(id,remolques,cantidad_llantas) values (%d,%d,%d)",
          trailer.getRemolques(),trailer.getCantidad_llantas());
          
          int res = consulta.executeUpdate(query);
@@ -203,7 +202,7 @@ public int registrarMotocicleta(Motocicleta motocicleta) throws ClassNotFoundExc
          Class.forName(JDBC_DRIVER); 
          Connection conexion = DriverManager.getConnection(DB_URL,USER,PASS);
          Statement consulta = conexion.createStatement();
-         String query = String.format("INSERT INTO motocicleta(es_deportiva,fabricante) values ('%b,'%s')",
+         String query = String.format("INSERT INTO motocicleta(id,es_deportiva,fabricante) values (%d,%b,'%s')",
          motocicleta.getEs_deportiva(),motocicleta.getFabricante());
          
          int res = consulta.executeUpdate(query);

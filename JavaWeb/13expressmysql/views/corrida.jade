@@ -1,0 +1,18 @@
+extends layout
+
+block content
+   h1 Corrida: #{corrida.id}
+   p.ciudad Origen: #{corrida.origen}
+   p Destino: #{corrida.destino}
+   p Hora Salida: #{corrida.horaSalida}
+   p Fecha Inicio: #{corrida.fechaSalida}
+   hr
+   p texto xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+     |yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+     |zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+script.
+   var h = 0;
+   alert("Hola " + (h+20)); 
+   
+block estilos
+   link(href='/stylesheets/corridas.css',rel='stylesheet')

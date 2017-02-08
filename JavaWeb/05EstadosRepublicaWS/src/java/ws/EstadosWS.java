@@ -8,6 +8,7 @@ package ws;
 import java.sql.SQLException;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import modelo.Estados;
 
 /**
  *
@@ -20,4 +21,7 @@ public interface EstadosWS {
     
     @WebMethod
     public int getPoblacion(String s) throws ClassNotFoundException,SQLException;
+    
+    @WebMethod
+    public Estados[]getEstados();
 }

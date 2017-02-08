@@ -7,9 +7,13 @@ package ws;
 
 import bd.EstadoBD;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
+import modelo.Estados;
 /**
  *
  * @author mp.aguilar
@@ -26,5 +30,22 @@ public class EstadosWSImpl implements EstadosWS{
     @Override
     public int getPoblacion(@WebParam(name = "estado") String s) throws ClassNotFoundException,SQLException{
         return EstadoBD.getPoblacion(s);
+    }
+    
+
+    @Override
+    @WebMethod
+    @WebResult(name="estado")
+    public Estados[] getEstados() {
+        try {   
+            Estados[] estados;
+            estados = EstadoBD.getEstados();
+            return estados;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstadosWSImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstadosWSImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

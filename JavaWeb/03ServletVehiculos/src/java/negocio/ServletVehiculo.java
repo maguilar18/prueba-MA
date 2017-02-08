@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Automovil;
 import model.Vehiculo;
 
 /**
@@ -55,19 +56,18 @@ public class ServletVehiculo extends HttpServlet {
         
          VehiculoDB aDB = new  VehiculoDB();
             try{
-                List<Autobus> lista = aDB.getAutobuses();
+                //identificar accion seleccionada                
+                List<Vehiculo> lista = aDB.getVehiculos();
                 PrintWriter pw = response.getWriter();
                 
-                lista.forEach(autobus-> pw.print(autobus));
+                lista.forEach(Vehiculo -> pw.print(Vehiculo));
             }catch (ClassNotFoundException e){
                 e.printStackTrace();
             }catch (SQLException e){
                 e.printStackTrace();
             }
-        
-        
     }
-
+    }
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -82,23 +82,44 @@ public class ServletVehiculo extends HttpServlet {
         //processRequest(request, response);
         try {
            request.setCharacterEncoding("UTF-8"); //para aceptar el acento en el servlet
+           int tipo = Integer.parseInt(request.getParameter("tipo_vehiculo"));           
            
-           Autobus autobus = new Autobus();
-           autobus.setNum_autobus(Integer.parseInt(request.getParameter("num_autobus")));
-           autobus.setSiglas(request.getParameter("siglas"));
-           autobus.setModelo(Integer.parseInt(request.getParameter("modelo")));
-           autobus.setCapacidad(Integer.parseInt(request.getParameter("capacidad")));
-           autobus.setBase(request.getParameter("base"));
-            System.out.println(autobus);
+           if (tipo == 1) 
+           { 
+               Automovil a = new Automovil(0,0,"",false,"",0,false);
+               a.setColor(request.getParameter("color"));
+               a.setId(Integer.parseInt(request.getParameter("id")));
+               a.setPuertas(Integer.parseInt(request.getParameter("puertas")));
+               a.setQuemacocos(Boolean.parseBoolean(request.getParameter("quemacocos")));
+               a.setFaros_niebla(Boolean.parseBoolean(request.getParameter("faros_niebla")));
+               a.setTamano(request.getParameter("tamano"));
+               System.out.println(a);
+           
+               VehiculoDB aDB = new VehiculoDB();
+               try{
+                  if ((aDB.registrarVehiculo(a)==1) && (aDB.registrarAutomovil(a)==1))
+                  response.sendRedirect("success.html");
+                }catch (ClassNotFoundException e)
+                {
+                    e.printStackTrace();
+                }                       
+           }
+                  
+           /*Vehiculo ve = new Vehiculo(0,0,"",false);
+           ve.setColor(request.getParameter("color"));
+           ve.setId(Integer.parseInt(request.getParameter("id")));
+           ve.setPuertas(Integer.parseInt(request.getParameter("puertas")));
+           ve.setQuemacocos(Boolean.parseBoolean(request.getParameter("quemacocos")));
+           System.out.println(ve);
            
            VehiculoDB aDB = new VehiculoDB();
            try{
-              if(aDB.registrarAutobus(autobus)== 1)
+              if(aDB.registrarVehiculo(ve)== 1)
                   response.sendRedirect("success.html");
            }catch (ClassNotFoundException e)
            {
                e.printStackTrace();
-           }                       
+           } */                     
         } catch (Exception e) {
         }        
     }
@@ -110,7 +131,6 @@ public class ServletVehiculo extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Servlet Vehiculos";
     }// </editor-fold>
-
 }

@@ -5,7 +5,7 @@
  */
 package model;
 
-import Vehiculo.Vehiculo;
+//import Vehiculo.Vehiculo;
 import java.util.Scanner;
 
 /**
@@ -40,7 +40,7 @@ public class Motocicleta extends Vehiculo{
     }
 
     
-  
+  /*
     @Override
     public void imprimir_informacion() {
        System.out.println("Motocicleta");                              
@@ -60,5 +60,5 @@ public class Motocicleta extends Vehiculo{
         this.es_deportiva = s.nextBoolean();         
         System.out.println("Fabricante");
         this.fabricante = s.next();
-    }  
+    }  */
 }
